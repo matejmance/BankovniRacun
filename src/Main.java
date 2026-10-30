@@ -23,22 +23,44 @@ public class Main {
                         System.out.println(bankovniRacun.getStanje());
                         break;
                 case 2:
-                    System.out.println("Uplata novca:");
-                    System.out.println("Unesi iznos koji zelis uplatiti : ");
-                    iznos = sc.nextDouble();
+                    try{
+                        System.out.println("Uplata novca:");
+                        System.out.println("Unesi iznos koji zelis uplatiti : ");
+                        iznos = sc.nextDouble();
 
-                    bankovniRacun.uplati(iznos);
+                        bankovniRacun.uplati(iznos);
+
+                    }
+                    catch(Exception e){
+                        System.err.println(e);
+                    }
+                    finally {
+                        System.out.println("Operacija izvrsena");
+                    }
                     break;
 
                 case 3:
-                    System.out.println("Isplata novca:");
-                    System.out.println("Unesi iznos koji zelis isplatiti : ");
-                    iznos = sc.nextDouble();
+                    try{
+                        System.out.println("Isplata novca:");
+                        System.out.println("Unesi iznos koji zelis isplatiti : ");
+                        iznos = sc.nextDouble();
 
-                    bankovniRacun.isplati(iznos);
+                        bankovniRacun.isplati(iznos);
+
+                    }
+                    catch (NedovoljnoSredstavaException e){
+                        System.err.println(e);
+                    }
+                    catch (IllegalArgumentException e){
+                        System.err.println(e);
+                    }
+                    finally {
+                        System.out.println("Operacija izvrsena");
+                    }
                     break;
                 case 4:
                     System.out.println("Kraj programa:");
+                    break;
             }
 
         }

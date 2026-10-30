@@ -36,8 +36,9 @@ public class BankovniRacun {
     public double isplati(double iznos) throws NedovoljnoSredstavaException{
         if(iznos > this.stanje){
             throw new NedovoljnoSredstavaException("Nedovoljno Sredstava");
-        }
-        else {
+        } else if (iznos <=0) {
+            throw new IllegalArgumentException("Iznos ne moze biti 0 ili manji");
+        } else {
             this.stanje = this.stanje - iznos;
             return this.stanje;
         }
