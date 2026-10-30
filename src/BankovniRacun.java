@@ -33,7 +33,7 @@ public class BankovniRacun {
         }
     }
 
-    public double isplati(double iznos) throws NedovoljnoSredstavaException{
+    public double isplati(double iznos){
         if(iznos > this.stanje){
             throw new NedovoljnoSredstavaException("Nedovoljno Sredstava");
         } else if (iznos <=0) {

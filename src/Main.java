@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -31,11 +32,14 @@ public class Main {
                         bankovniRacun.uplati(iznos);
 
                     }
-                    catch(Exception e){
+                    catch(IllegalArgumentException e){
                         System.err.println(e);
                     }
+                    catch (InputMismatchException e){
+                        System.err.println("Neispravan unos");
+                    }
                     finally {
-                        System.out.println("Operacija izvrsena");
+                        System.out.println("Pokusaj operacije zavrsen");
                     }
                     break;
 
@@ -54,8 +58,11 @@ public class Main {
                     catch (IllegalArgumentException e){
                         System.err.println(e);
                     }
+                    catch (InputMismatchException e){
+                        System.err.println("Neispravan unos");
+                    }
                     finally {
-                        System.out.println("Operacija izvrsena");
+                        System.out.println("Pokusaj operacije zavrsen");
                     }
                     break;
                 case 4:
